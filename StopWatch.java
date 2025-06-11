@@ -4,39 +4,39 @@ class StopWatch {
     private long startTime;
     private long endTime;
 
-    StopWatch(){
+    StopWatch() {
         this.startTime = System.currentTimeMillis();
     }
 
-    public long getStartTime(){
+    public long getStartTime() {
         return startTime;
     }
 
-    public long getEndTime(){
+    public long getEndTime() {
         return endTime;
     }
 
-    public void start(){
+    public void start() {
         startTime = System.currentTimeMillis();
     }
 
-    public void end(){
+    public void end() {
         endTime = System.currentTimeMillis();
     }
 
-    public long elapsedTime(){
+    public long elapsedTime() {
         return endTime - startTime;
     }
 }
 
-class Test{
-    public static void main(String [] args){
+class Test {
+    public static void main(String[] args) {
 
         int size = 100000;
         int[] number = new int[size];
-        
-        for(int i = 0; i < size; i++){
-            number[i] = (int)(Math.random() * 100000);
+
+        for (int i = 0; i < size; i++) {
+            number[i] = (int) (Math.random() * 100000);
         }
 
         StopWatch s1 = new StopWatch();
@@ -47,24 +47,24 @@ class Test{
 
         s1.end();
 
-        System.out.println("Execution Time for Sorting 100,000 numbers is: " + s1.elapsedTime() / 1000 + " seconds");
-
+        System.out
+                .println("--> Execution Time for Sorting 100,000 numbers is: " + s1.elapsedTime() / 1000 + " seconds");
 
     }
 
-    public static void selectionSort(int number[], int size){
-    for(int i = 0; i < size - 1; i++){
-    int smallestIndex = i;
+    public static void selectionSort(int number[], int size) {
+        for (int i = 0; i < size - 1; i++) {
+            int smallestIndex = i;
 
-    for(int j = i+1; j < size - 1; j++){
-       if (number[j] < number[smallestIndex]) {
-        smallestIndex = j;
-       }
-    }
+            for (int j = i + 1; j < size - 1; j++) {
+                if (number[j] < number[smallestIndex]) {
+                    smallestIndex = j;
+                }
+            }
 
-    int temp = number[i];
-    number[i] = number[smallestIndex];
-    number[smallestIndex] = temp;
-}
+            int temp = number[i];
+            number[i] = number[smallestIndex];
+            number[smallestIndex] = temp;
+        }
     }
 }
